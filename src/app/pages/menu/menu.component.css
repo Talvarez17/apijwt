@@ -1,0 +1,24 @@
+li{
+    margin-right: 10px;
+    color:white;
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+a{
+    color:white;
+}
+a.dropdown-item:hover{
+    color:white;
+    background-color:black;
+}
+
+a.dropdown-item{
+    color:white;
+}
+
+ul.dropdown-menu{
+    background:red;
+}
