@@ -18,6 +18,7 @@ export class LoginComponent {
   });
 
   constructor(private fb: FormBuilder, private conexion: ServicesService, private auth: AuthGuard, private router: Router) {
+    localStorage.clear()
   }
 
 
@@ -27,33 +28,29 @@ export class LoginComponent {
      
       console.log(dato);
       
-      // if (dato.id != 0) {
-      //   console.log("exitoso");
-      //   this.router.navigate(['/main']);
+      if (!dato.error) {
+        console.log("exitoso");
+        localStorage.setItem('token', dato.tokenjwt);
+        this.router.navigate(['/main']);
 
-      // } else {
+      } else {
       
-      //   Swal.fire({
-      //     title: 'Error',
-      //     text: "No se ha encontrado al usuario ",
-      //     icon: 'error',
-      //     showCancelButton: false,
-      //     confirmButtonColor: 'red',
-      //     confirmButtonText: 'Aceptar'
-      //   }).then((result) => {
-      //     if (result.isConfirmed) {
-      //       this.router.navigate(['/login']);
-      //     }
-      //   })
+        Swal.fire({
+          title: 'Error',
+          text: "No se ha encontrado al usuario ",
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: 'red',
+          confirmButtonText: 'Aceptar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/login']);
+          }
+        })
         
-      // }
+      }
     });
 
   }
-
-  login(){
-    this.router.navigate(['/main'])
-  }
-
 
 }

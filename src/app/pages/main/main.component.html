@@ -13,11 +13,11 @@
 
     <tbody *ngFor="let L of Lista">
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+        <th scope="row">{{L.id}}</th>
+        <td>{{L.nombre}}</td>
+        <td>{{L.apellidoPaterno}}</td>
+        <td>{{L.apellidoMaterno}}</td>
+        <td>{{L.rfc}}</td>
       </tr>
     </tbody>
   </table>

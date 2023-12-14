@@ -19,7 +19,7 @@ export class MainComponent {
     listaActividades() {
       this.conexion.get().subscribe((dato: any) => {
         console.log(dato);
-        this.Lista = dato.reverse();
+        this.Lista = dato;
       });
     }
 
