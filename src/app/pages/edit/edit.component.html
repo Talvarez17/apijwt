@@ -1,2 +1,74 @@
 <app-menu></app-menu>
-<p>edit works!</p>
+
+<section>
+    <div class="container-fluid">
+
+        <form (ngSubmit)="Agregar()" [formGroup]="Formulario">
+
+            <div class="mb-10 ms-3 mt-2 row flex w-full text-center text-xl font-semibold">
+                <h3>Agregar persona</h3>
+            </div>
+
+            <div class="mb-3 ms-3 mt-2 row">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+                    <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">
+                        Este campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3 ms-3 mt-2 row">
+                <label class="col-sm-3 col-form-label">Apellido Paterno</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="apellidoPaterno" placeholder="Apellido Paterno">
+                    <span class="form-text text-danger" *ngIf="campoEsValido('apellidoPaterno')">
+                        Este campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3 ms-3 mt-2 row">
+                <label class="col-sm-3 col-form-label">Apellido Materno</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="apellidoMaterno" placeholder="Apellido Materno">
+                    <span class="form-text text-danger" *ngIf="campoEsValido('apellidoMaterno')">
+                        Este campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3 ms-3 mt-2 row">
+                <label class="col-sm-3 col-form-label">RFC</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="rfc" placeholder="RFC">
+                    <span class="form-text text-danger" *ngIf="campoEsValido('rfc')">
+                        Este campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3 ms-3 mt-2 row">
+                <label class="col-sm-3 col-form-label">Contraseña</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="pass" placeholder="Contraseña">
+                    <span class="form-text text-danger" *ngIf="campoEsValido('pass')">
+                        Este campo es obligatorio
+                    </span>
+                </div>
+            </div>
+
+
+
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" [disabled]="!Formulario.valid"class="btn btn-outline-success">
+                    <i class="bi bi-floppy2-fill"></i>
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</section>

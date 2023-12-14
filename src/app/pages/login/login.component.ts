@@ -13,33 +13,43 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   Formulario: FormGroup = this.fb.group({
-    user: [, Validators.required],
-    password: [, Validators.required],
+    rfc: [, Validators.required],
+    pass: [, Validators.required],
   });
 
   constructor(private fb: FormBuilder, private conexion: ServicesService, private auth: AuthGuard, private router: Router) {
   }
 
 
-  // login() {
-  //   console.log("Boton entrar funciona");
-  //   this.conexion.post('nomina', 'Login', this.Formulario.value).subscribe((dato: any) => {
-  //     console.log(dato);
+  Login() {
 
-  //     if (dato.id != 0) {
-  //       setTimeout(() => {
-  //         this.router.navigate(['/main']);
-  //       }, 1000);
-  //     } else {
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'Usuario no encontrado',
-  //         text: 'Verifica que tus datos sean correctos'
-  //       });
-  //     }
+    this.conexion.post('login', this.Formulario.value).subscribe((dato: any) => {
+     
+      console.log(dato);
+      
+      // if (dato.id != 0) {
+      //   console.log("exitoso");
+      //   this.router.navigate(['/main']);
 
-  //   });
-  // }
+      // } else {
+      
+      //   Swal.fire({
+      //     title: 'Error',
+      //     text: "No se ha encontrado al usuario ",
+      //     icon: 'error',
+      //     showCancelButton: false,
+      //     confirmButtonColor: 'red',
+      //     confirmButtonText: 'Aceptar'
+      //   }).then((result) => {
+      //     if (result.isConfirmed) {
+      //       this.router.navigate(['/login']);
+      //     }
+      //   })
+        
+      // }
+    });
+
+  }
 
   login(){
     this.router.navigate(['/main'])

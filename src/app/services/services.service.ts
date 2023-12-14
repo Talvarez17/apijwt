@@ -6,16 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class ServicesService {
 
-  baseUrl = 'http://localhost/webservice-schoolservice/controller/';
-  usd = 0;
+  baseUrl = 'http://localhost/sistemasP1JWTA/fakeapi2.php/';
 
   constructor(private http: HttpClient) { }
 
-  get(model: string, action: string) {
-    return this.http.get(`${this.baseUrl}${model}.php?option=${action}`);
+  get() {
+    return this.http.get('http://localhost/sistemasP1JWTA/fakeapi2.php');
   }
 
-  post(model: string, action: string, datos: any) {
-    return this.http.post(`${this.baseUrl}${model}.php?option=${action}`, datos);
+  post(action: string, datos: any) {
+    return this.http.post(`${this.baseUrl}${action}`, datos);
   }
 }
