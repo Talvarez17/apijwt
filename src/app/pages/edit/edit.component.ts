@@ -16,14 +16,13 @@ export class EditComponent {
     apellidoPaterno: [, [Validators.required, Validators.maxLength(255)]],
     apellidoMaterno: [, [Validators.required, Validators.maxLength(255)]],
     rfc: [, [Validators.required, Validators.maxLength(10)]],
-    pass: [, [Validators.required, Validators.maxLength(255)]],
-    token: localStorage.getItem('token')
-  });
+    pass: [, [Validators.required, Validators.maxLength(255)]]
+    });
 
 
   constructor(private fb: FormBuilder,private router:Router, private conexion: ServicesService) {
 
-    }
+  }
 
   campoEsValido(campo: string) {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
@@ -47,10 +46,10 @@ export class EditComponent {
               this.router.navigate(['/main']);
             }
           })
-        } else if (dato.status == 401) {
+        } else {
           Swal.fire(
             'Error',
-            'No se ha marcar como terminada la actividad',
+            'No se ha registrado a la persona',
             'warning'
           )        
         }

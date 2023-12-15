@@ -17,4 +17,8 @@ export class ServicesService {
   post(action: string, datos: any) {
     return this.http.post(`${this.baseUrl}${action}`, datos);
   }
+
+  delete(datos: any) {
+    return this.http.delete(`${this.baseUrl}${datos}`);
+  }
 }

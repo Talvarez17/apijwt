@@ -25,16 +25,17 @@ export class LoginComponent {
   Login() {
 
     this.conexion.post('login', this.Formulario.value).subscribe((dato: any) => {
-     
-      console.log(dato);
-      
+
       if (!dato.error) {
-        console.log("exitoso");
+
+        // setTimeout(() => {
+
         localStorage.setItem('token', dato.tokenjwt);
         this.router.navigate(['/main']);
 
+        // }, 1000);
+
       } else {
-      
         Swal.fire({
           title: 'Error',
           text: "No se ha encontrado al usuario ",
@@ -47,8 +48,8 @@ export class LoginComponent {
             this.router.navigate(['/login']);
           }
         })
-        
       }
+
     });
 
   }

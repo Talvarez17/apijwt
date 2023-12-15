@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<table class="table table-striped table-danger" style="text-align: center;">
+<table class="table table-danger table-striped table-hover" style="text-align: center;">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -8,6 +8,7 @@
         <th scope="col">Apellido Paterno</th>
         <th scope="col">Apellido Materno</th>
         <th scope="col">RFC</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
 
@@ -18,6 +19,7 @@
         <td>{{L.apellidoPaterno}}</td>
         <td>{{L.apellidoMaterno}}</td>
         <td>{{L.rfc}}</td>
+        <td><button (click)="eliminar(L.id)" type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
       </tr>
     </tbody>
   </table>
